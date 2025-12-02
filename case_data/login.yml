@@ -1,0 +1,42 @@
+test_suite: "登录模块"
+test_cases:
+  - case_name: "ebond登录"
+    description: "测试正常用户名密码登录"
+    request:
+      url: https://10.224.207.68
+      method: "POST"
+      path: "/uaa/oauth/token?grant_type=password&username=${username}&password=${password}"
+      headers:
+        Content-Type: "application/json;charset=UTF-8"
+        authorization: "Basic bWFuYWdlbWVudDp7bm9vcH1zZWNyZXQ="
+        User-Agent: "AutoTest/1.0"
+    extract:
+      token_type: "$.data.token_type"
+      access_token: "$.data.access_token"
+    validate:
+      - ['$.status_code',==,'200']
+
+
+  - case_name: "衡泰登录"
+    description: "衡泰登录"
+    request:
+      url: http://10.224.207.69:8080
+      method: "POST"
+      path: "/web/xcc_doLogin.action"
+      headers:
+        Content-Type: "application/x-www-form-urlencoded"
+        cookie: 'JSESSIONID=05B775E6462B3D9274FF988F0E45EFDD'
+      data:
+        account: "admin"
+        password: "mtrq2OOK/ZLa5DOuQhYEIz8n90DiO1D2abKVD65eILT0FVI/YysjQPi/zWBOa3Vsa0s55Yi9Rb6sYbZcJasOfe4idnmvj7x1/ViJ9ZhtXYOp5+Uq/zH5kIbq27ueikNnRqGbGejvyGG4Gdy6nwdeZcpVWfH80aNG3/lEwjNVZ7c="
+        code: ''
+        validationCodeValue: false
+    extract:
+      cookie:
+        from: "cookies"
+        path: "JSESSIONID"
+        save_as: "JSESSIONID"
+
+    validate:
+      - ['$.status_code',==,'200']
+

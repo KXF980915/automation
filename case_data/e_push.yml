@@ -1,0 +1,41 @@
+test_suite: "小E推送"
+test_cases:
+  - case_name: "维护债券"
+    description: "维护债券"
+    request:
+      url: https://10.224.207.68
+      method: "POST"
+      path: "/api/mgt/index/queryMergeBonds"
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "${token_type} ${access_token}"
+      }
+      json:
+        "param": {
+          "isDeclared": true,
+          "startIssueDate": "2025-12-01",
+          "endIssueDate": "2025-12-01",
+          "groupTypes": ["LLZ"],
+          "filteryx": null,
+          "bondTypes": ["GZ"],
+          "tradeMarkets": null,
+          "bondTerm": [0, 100],
+          "startPayDate": null,
+          "endPayDate": null,
+          "payDate": null,
+          "keyword": "",
+          "tremTip": "year",
+          "dockingSales": []
+        }
+        "pagination": {
+          "pageNum": 1,
+          "pageSize": 100
+        }
+
+    extract:
+      id: "$.data.data.content[0].id"
+      bondCode: "$.data.data.content[0].bondCode"
+    validate:
+      - ['$.status_code',==,'${expected}']
+#      - ['$.data.content[0].id',==,'19851027']
+

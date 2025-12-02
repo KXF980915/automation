@@ -1,0 +1,86 @@
+2025-12-02 16:40:51 - 执行日志 - ERROR - 获取用例失败：YAML文件解析错误: while parsing a flow sequence
+  in "D:\automation\case_data\e_push.yml", line 39, column 9
+expected ',' or ']', but got '{'
+  in "D:\automation\case_data\e_push.yml", line 39, column 30 - 文件：e_push.yml, 用例：维护债券
+2025-12-02 16:40:51 - 执行日志 - ERROR - 用例执行失败: 'NoneType' object has no attribute 'get'
+2025-12-02 16:40:51 - 执行日志 - ERROR - 获取用例失败：YAML文件解析错误: while parsing a flow sequence
+  in "D:\automation\case_data\e_push.yml", line 39, column 9
+expected ',' or ']', but got '{'
+  in "D:\automation\case_data\e_push.yml", line 39, column 30 - 文件：e_push.yml, 用例：维护债券
+2025-12-02 16:40:51 - 执行日志 - ERROR - 用例执行失败: 'NoneType' object has no attribute 'get'
+2025-12-02 16:41:02 - 执行日志 - ERROR - 获取用例失败：YAML文件解析错误: while parsing a flow sequence
+  in "D:\automation\case_data\e_push.yml", line 39, column 9
+expected ',' or ']', but got '{'
+  in "D:\automation\case_data\e_push.yml", line 39, column 30 - 文件：e_push.yml, 用例：维护债券
+2025-12-02 16:41:02 - 执行日志 - ERROR - 用例执行失败: 'NoneType' object has no attribute 'get'
+2025-12-02 16:41:03 - 执行日志 - ERROR - 获取用例失败：YAML文件解析错误: while parsing a flow sequence
+  in "D:\automation\case_data\e_push.yml", line 39, column 9
+expected ',' or ']', but got '{'
+  in "D:\automation\case_data\e_push.yml", line 39, column 30 - 文件：e_push.yml, 用例：维护债券
+2025-12-02 16:41:03 - 执行日志 - ERROR - 用例执行失败: 'NoneType' object has no attribute 'get'
+2025-12-02 16:41:20 - 执行日志 - INFO - 提取变量成功: id = 19851027
+2025-12-02 16:41:20 - 执行日志 - INFO - 提取变量成功: bondCode = 200017X2.IB
+2025-12-02 16:41:20 - 执行日志 - INFO - 验证通过: $.status_code == 200
+2025-12-02 16:41:20 - 执行日志 - INFO - 验证通过: $.data.content[0].id == 19851027
+2025-12-02 16:41:20 - 执行日志 - INFO - 成功保存变量到extract.yml: ['id', 'bondCode']
+2025-12-02 16:41:20 - 执行日志 - WARNING - 提取变量失败 id: Expecting value: line 1 column 1 (char 0)
+2025-12-02 16:41:20 - 执行日志 - WARNING - 提取变量失败 bondCode: Expecting value: line 1 column 1 (char 0)
+2025-12-02 16:41:20 - 执行日志 - INFO - 验证通过: $.status_code == 401
+2025-12-02 16:41:20 - 执行日志 - ERROR - 验证失败: $.data.content[0].id == 19851027, 实际值: None
+2025-12-02 16:41:20 - 执行日志 - ERROR - 用例执行失败: exceptions must derive from BaseException
+2025-12-02 16:41:31 - 执行日志 - INFO - 提取变量成功: id = 19851027
+2025-12-02 16:41:31 - 执行日志 - INFO - 提取变量成功: bondCode = 200017X2.IB
+2025-12-02 16:41:31 - 执行日志 - INFO - 验证通过: $.status_code == 200
+2025-12-02 16:41:31 - 执行日志 - INFO - 成功保存变量到extract.yml: ['id', 'bondCode']
+2025-12-02 16:41:31 - 执行日志 - WARNING - 提取变量失败 id: Expecting value: line 1 column 1 (char 0)
+2025-12-02 16:41:31 - 执行日志 - WARNING - 提取变量失败 bondCode: Expecting value: line 1 column 1 (char 0)
+2025-12-02 16:41:31 - 执行日志 - INFO - 验证通过: $.status_code == 401
+2025-12-02 16:46:44 - 执行日志 - INFO - 提取变量成功: id = 19851027
+2025-12-02 16:46:44 - 执行日志 - INFO - 提取变量成功: bondCode = 200017X2.IB
+2025-12-02 16:46:44 - 执行日志 - INFO - 验证通过: $.status_code == 200
+2025-12-02 16:46:44 - 执行日志 - INFO - 成功保存变量到extract.yml: ['id', 'bondCode']
+2025-12-02 16:46:44 - 执行日志 - WARNING - 提取变量失败 id: Expecting value: line 1 column 1 (char 0)
+2025-12-02 16:46:44 - 执行日志 - WARNING - 提取变量失败 bondCode: Expecting value: line 1 column 1 (char 0)
+2025-12-02 16:46:44 - 执行日志 - INFO - 验证通过: $.status_code == 401
+2025-12-02 17:04:17 - 执行日志 - INFO - 提取变量成功: id = 19851027
+2025-12-02 17:04:17 - 执行日志 - INFO - 提取变量成功: bondCode = 200017X2.IB
+2025-12-02 17:04:17 - 执行日志 - INFO - 验证通过: $.status_code == 200
+2025-12-02 17:04:17 - 执行日志 - INFO - 成功保存变量到extract.yml: ['id', 'bondCode']
+2025-12-02 17:04:29 - 执行日志 - WARNING - 提取变量失败 id: Expecting value: line 1 column 1 (char 0)
+2025-12-02 17:04:29 - 执行日志 - WARNING - 提取变量失败 bondCode: Expecting value: line 1 column 1 (char 0)
+2025-12-02 17:04:29 - 执行日志 - INFO - 验证通过: $.status_code == 401
+2025-12-02 17:16:03 - 执行日志 - INFO - 提取变量成功: id = 19851027
+2025-12-02 17:16:03 - 执行日志 - INFO - 提取变量成功: bondCode = 200017X2.IB
+2025-12-02 17:16:03 - 执行日志 - INFO - 验证通过: $.status_code == 200
+2025-12-02 17:16:03 - 执行日志 - INFO - 成功保存变量到extract.yml: ['id', 'bondCode']
+2025-12-02 17:16:03 - 执行日志 - WARNING - 提取变量失败 id: Expecting value: line 1 column 1 (char 0)
+2025-12-02 17:16:03 - 执行日志 - WARNING - 提取变量失败 bondCode: Expecting value: line 1 column 1 (char 0)
+2025-12-02 17:16:03 - 执行日志 - INFO - 验证通过: $.status_code == 401
+2025-12-02 17:18:02 - 执行日志 - INFO - 提取变量成功: id = 19851027
+2025-12-02 17:18:02 - 执行日志 - INFO - 提取变量成功: bondCode = 200017X2.IB
+2025-12-02 17:18:02 - 执行日志 - INFO - 验证通过: $.status_code == 200
+2025-12-02 17:18:02 - 执行日志 - INFO - 成功保存变量到extract.yml: ['id', 'bondCode']
+2025-12-02 17:18:03 - 执行日志 - WARNING - 提取变量失败 id: Expecting value: line 1 column 1 (char 0)
+2025-12-02 17:18:03 - 执行日志 - WARNING - 提取变量失败 bondCode: Expecting value: line 1 column 1 (char 0)
+2025-12-02 17:18:03 - 执行日志 - INFO - 验证通过: $.status_code == 401
+2025-12-02 17:19:07 - 执行日志 - INFO - 提取变量成功: id = 19851027
+2025-12-02 17:19:07 - 执行日志 - INFO - 提取变量成功: bondCode = 200017X2.IB
+2025-12-02 17:19:07 - 执行日志 - INFO - 验证通过: $.status_code == 200
+2025-12-02 17:19:07 - 执行日志 - INFO - 成功保存变量到extract.yml: ['id', 'bondCode']
+2025-12-02 17:19:08 - 执行日志 - WARNING - 提取变量失败 id: Expecting value: line 1 column 1 (char 0)
+2025-12-02 17:19:08 - 执行日志 - WARNING - 提取变量失败 bondCode: Expecting value: line 1 column 1 (char 0)
+2025-12-02 17:19:08 - 执行日志 - INFO - 验证通过: $.status_code == 401
+2025-12-02 17:30:30 - 执行日志 - INFO - 提取变量成功: id = 19851027
+2025-12-02 17:30:30 - 执行日志 - INFO - 提取变量成功: bondCode = 200017X2.IB
+2025-12-02 17:30:30 - 执行日志 - INFO - 验证通过: $.status_code == 200
+2025-12-02 17:30:30 - 执行日志 - INFO - 成功保存变量到extract.yml: ['id', 'bondCode']
+2025-12-02 17:30:30 - 执行日志 - WARNING - 提取变量失败 id: Expecting value: line 1 column 1 (char 0)
+2025-12-02 17:30:30 - 执行日志 - WARNING - 提取变量失败 bondCode: Expecting value: line 1 column 1 (char 0)
+2025-12-02 17:30:30 - 执行日志 - INFO - 验证通过: $.status_code == 401
+2025-12-02 17:31:00 - 执行日志 - INFO - 提取变量成功: id = 19851027
+2025-12-02 17:31:00 - 执行日志 - INFO - 提取变量成功: bondCode = 200017X2.IB
+2025-12-02 17:31:00 - 执行日志 - INFO - 验证通过: $.status_code == 200
+2025-12-02 17:31:00 - 执行日志 - INFO - 成功保存变量到extract.yml: ['id', 'bondCode']
+2025-12-02 17:31:00 - 执行日志 - WARNING - 提取变量失败 id: Expecting value: line 1 column 1 (char 0)
+2025-12-02 17:31:00 - 执行日志 - WARNING - 提取变量失败 bondCode: Expecting value: line 1 column 1 (char 0)
+2025-12-02 17:31:00 - 执行日志 - INFO - 验证通过: $.status_code == 401

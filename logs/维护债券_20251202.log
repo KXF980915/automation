@@ -1,0 +1,948 @@
+2025-12-02 16:41:19 - 维护债券 - INFO - 请求详情:
+2025-12-02 16:41:19 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 16:41:19 - 维护债券 - INFO -   方法: POST
+2025-12-02 16:41:19 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 16:41:19 - 维护债券 - INFO -   参数: {}
+2025-12-02 16:41:19 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 16:41:20 - 维护债券 - INFO - 响应详情:
+2025-12-02 16:41:20 - 维护债券 - INFO -   状态码: 200
+2025-12-02 16:41:20 - 维护债券 - INFO -   响应时间: 0.552476秒
+2025-12-02 16:41:20 - 维护债券 - INFO -   响应数据: 
+{
+    "code": 200,
+    "message": "SUCCESS",
+    "data": {
+        "totalPages": 1,
+        "totalElements": 1,
+        "content": [
+            {
+                "id": "19851027",
+                "issueDate": "2025-12-01",
+                "issueEnddate": "2025-12-01",
+                "regional": "北京",
+                "bondAbbr": "20附息国债17(续2)",
+                "bondName": "2020年记账式附息(十七期)国债(续2)",
+                "bondTerm": "7.00",
+                "issuingScale": "500",
+                "issuer": "中华人民共和国财政部",
+                "issuerCode": "2000850",
+                "payDate": "2025-12-01",
+                "listingDate": "2025-12-01",
+                "updateTime": "2025-12-01 23:30:01",
+                "couponRate": "3.28",
+                "biginterval": "待定",
+                "smallinterval": "待定",
+                "groupType": "llz",
+                "bondTypeDes": "国债",
+                "bondCode": "200017X2.IB",
+                "tradeMarket": "银行间",
+                "bidStyle": "混合式",
+                "bidTime": "10:35-11:35",
+                "chinaBondValuation": "1.1825",
+                "mireBate": "0.08",
+                "weightedinterestrate": "3.1551",
+                "marginalinterestrate": "3.1955",
+                "overallmultiples": "3.834",
+                "marginalmultiples": "1.47",
+                "foreCast": "3.17-3.21",
+                "couponType": "附息",
+                "issueType": "公募",
+                "referenceYield": "3.16",
+                "issuePrice": "101.32",
+                "guarantor": "无",
+                "expiredDate": "27-12-3 上午12:00",
+                "industry": " ",
+                "source": "0",
+                "iscast": "0",
+                "cancelIssue": "0",
+                "delayDays": "0",
+                "iszt": "一创在团",
+                "bondTypeCode": "001",
+                "bondType": "9223372036854775681",
+                "bondIdRefor": "",
+                "typeRefor": "",
+                "fileQuantity": "6",
+                "fileQuantityWgg": "0",
+                "updateDay": "2",
+                "suggestion": "0",
+                "isPanda": "0",
+                "surplusBondTerm": "2.0027",
+                "suggestionReason": "2524254656",
+                "grade": "100",
+                "issuUpdateTime": "2025-06-19",
+                "biddingType": "2"
+            }
+        ]
+    },
+    "success": true,
+    "fail": false
+}
+2025-12-02 16:41:20 - 维护债券 - INFO - 变量提取:
+2025-12-02 16:41:20 - 维护债券 - INFO -   id: 19851027
+2025-12-02 16:41:20 - 维护债券 - INFO -   bondCode: 200017X2.IB
+2025-12-02 16:41:20 - 维护债券 - INFO - 验证结果:
+2025-12-02 16:41:20 - 维护债券 - INFO -   ✅ $.status_code == 200 -> 实际: 200
+2025-12-02 16:41:20 - 维护债券 - INFO -   ✅ $.data.content[0].id == 19851027 -> 实际: 19851027
+2025-12-02 16:41:20 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 16:41:20 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 0.55秒
+2025-12-02 16:41:20 - 维护债券 - INFO - ============================================================
+2025-12-02 16:41:20 - 维护债券 - INFO - 
+2025-12-02 16:41:20 - 维护债券 - INFO - 请求详情:
+2025-12-02 16:41:20 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 16:41:20 - 维护债券 - INFO -   方法: POST
+2025-12-02 16:41:20 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer1 a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 16:41:20 - 维护债券 - INFO -   参数: {}
+2025-12-02 16:41:20 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 16:41:20 - 维护债券 - INFO - 响应详情:
+2025-12-02 16:41:20 - 维护债券 - INFO -   状态码: 401
+2025-12-02 16:41:20 - 维护债券 - INFO -   响应时间: 0.132741秒
+2025-12-02 16:41:20 - 维护债券 - INFO -   响应数据: 
+"<InvalidTokenException><error>invalid_token</error><error_description>1 a499695c-5a27-4dc3-a59b-5f3057d08a43</error_description></InvalidTokenException>"
+2025-12-02 16:41:20 - 维护债券 - ERROR - 执行错误: 响应处理失败: 验证失败: $.data.content[0].id == 19851027, 实际值: None
+2025-12-02 16:41:20 - 维护债券 - ERROR - 验证失败: $.data.content[0].id == 19851027, 实际值: None
+Traceback (most recent call last):
+  File "D:\automation\common\request_encapsulation.py", line 252, in process_response
+    self._validate_response(response, response_data, case_data.get('validate', []), result)
+  File "D:\automation\common\request_encapsulation.py", line 581, in _validate_response
+    raise AssertionError(error_msg)
+AssertionError: 验证失败: $.data.content[0].id == 19851027, 实际值: None
+2025-12-02 16:41:30 - 维护债券 - INFO - 请求详情:
+2025-12-02 16:41:30 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 16:41:30 - 维护债券 - INFO -   方法: POST
+2025-12-02 16:41:30 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 16:41:30 - 维护债券 - INFO -   参数: {}
+2025-12-02 16:41:30 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 16:41:31 - 维护债券 - INFO - 响应详情:
+2025-12-02 16:41:31 - 维护债券 - INFO -   状态码: 200
+2025-12-02 16:41:31 - 维护债券 - INFO -   响应时间: 0.398966秒
+2025-12-02 16:41:31 - 维护债券 - INFO -   响应数据: 
+{
+    "code": 200,
+    "message": "SUCCESS",
+    "data": {
+        "totalPages": 1,
+        "totalElements": 1,
+        "content": [
+            {
+                "id": "19851027",
+                "issueDate": "2025-12-01",
+                "issueEnddate": "2025-12-01",
+                "regional": "北京",
+                "bondAbbr": "20附息国债17(续2)",
+                "bondName": "2020年记账式附息(十七期)国债(续2)",
+                "bondTerm": "7.00",
+                "issuingScale": "500",
+                "issuer": "中华人民共和国财政部",
+                "issuerCode": "2000850",
+                "payDate": "2025-12-01",
+                "listingDate": "2025-12-01",
+                "updateTime": "2025-12-01 23:30:01",
+                "couponRate": "3.28",
+                "biginterval": "待定",
+                "smallinterval": "待定",
+                "groupType": "llz",
+                "bondTypeDes": "国债",
+                "bondCode": "200017X2.IB",
+                "tradeMarket": "银行间",
+                "bidStyle": "混合式",
+                "bidTime": "10:35-11:35",
+                "chinaBondValuation": "1.1825",
+                "mireBate": "0.08",
+                "weightedinterestrate": "3.1551",
+                "marginalinterestrate": "3.1955",
+                "overallmultiples": "3.834",
+                "marginalmultiples": "1.47",
+                "foreCast": "3.17-3.21",
+                "couponType": "附息",
+                "issueType": "公募",
+                "referenceYield": "3.16",
+                "issuePrice": "101.32",
+                "guarantor": "无",
+                "expiredDate": "27-12-3 上午12:00",
+                "industry": " ",
+                "source": "0",
+                "iscast": "0",
+                "cancelIssue": "0",
+                "delayDays": "0",
+                "iszt": "一创在团",
+                "bondTypeCode": "001",
+                "bondType": "9223372036854775681",
+                "bondIdRefor": "",
+                "typeRefor": "",
+                "fileQuantity": "6",
+                "fileQuantityWgg": "0",
+                "updateDay": "2",
+                "suggestion": "0",
+                "isPanda": "0",
+                "surplusBondTerm": "2.0027",
+                "suggestionReason": "2524254656",
+                "grade": "100",
+                "issuUpdateTime": "2025-06-19",
+                "biddingType": "2"
+            }
+        ]
+    },
+    "success": true,
+    "fail": false
+}
+2025-12-02 16:41:31 - 维护债券 - INFO - 变量提取:
+2025-12-02 16:41:31 - 维护债券 - INFO -   id: 19851027
+2025-12-02 16:41:31 - 维护债券 - INFO -   bondCode: 200017X2.IB
+2025-12-02 16:41:31 - 维护债券 - INFO - 验证结果:
+2025-12-02 16:41:31 - 维护债券 - INFO -   ✅ $.status_code == 200 -> 实际: 200
+2025-12-02 16:41:31 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 16:41:31 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 0.40秒
+2025-12-02 16:41:31 - 维护债券 - INFO - ============================================================
+2025-12-02 16:41:31 - 维护债券 - INFO - 
+2025-12-02 16:41:31 - 维护债券 - INFO - 请求详情:
+2025-12-02 16:41:31 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 16:41:31 - 维护债券 - INFO -   方法: POST
+2025-12-02 16:41:31 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer1 a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 16:41:31 - 维护债券 - INFO -   参数: {}
+2025-12-02 16:41:31 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 16:41:31 - 维护债券 - INFO - 响应详情:
+2025-12-02 16:41:31 - 维护债券 - INFO -   状态码: 401
+2025-12-02 16:41:31 - 维护债券 - INFO -   响应时间: 0.129162秒
+2025-12-02 16:41:31 - 维护债券 - INFO -   响应数据: 
+"<InvalidTokenException><error>invalid_token</error><error_description>1 a499695c-5a27-4dc3-a59b-5f3057d08a43</error_description></InvalidTokenException>"
+2025-12-02 16:41:31 - 维护债券 - INFO - 验证结果:
+2025-12-02 16:41:31 - 维护债券 - INFO -   ✅ $.status_code == 401 -> 实际: 401
+2025-12-02 16:41:31 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 16:41:31 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 0.13秒
+2025-12-02 16:41:31 - 维护债券 - INFO - ============================================================
+2025-12-02 16:41:31 - 维护债券 - INFO - 
+2025-12-02 16:46:43 - 维护债券 - INFO - 请求详情:
+2025-12-02 16:46:43 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 16:46:43 - 维护债券 - INFO -   方法: POST
+2025-12-02 16:46:43 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 16:46:43 - 维护债券 - INFO -   参数: {}
+2025-12-02 16:46:43 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 16:46:44 - 维护债券 - INFO - 响应详情:
+2025-12-02 16:46:44 - 维护债券 - INFO -   状态码: 200
+2025-12-02 16:46:44 - 维护债券 - INFO -   响应时间: 0.598241秒
+2025-12-02 16:46:44 - 维护债券 - INFO -   响应数据: 
+{
+    "code": 200,
+    "message": "SUCCESS",
+    "data": {
+        "totalPages": 1,
+        "totalElements": 1,
+        "content": [
+            {
+                "id": "19851027",
+                "issueDate": "2025-12-01",
+                "issueEnddate": "2025-12-01",
+                "regional": "北京",
+                "bondAbbr": "20附息国债17(续2)",
+                "bondName": "2020年记账式附息(十七期)国债(续2)",
+                "bondTerm": "7.00",
+                "issuingScale": "500",
+                "issuer": "中华人民共和国财政部",
+                "issuerCode": "2000850",
+                "payDate": "2025-12-01",
+                "listingDate": "2025-12-01",
+                "updateTime": "2025-12-01 23:30:01",
+                "couponRate": "3.28",
+                "biginterval": "待定",
+                "smallinterval": "待定",
+                "groupType": "llz",
+                "bondTypeDes": "国债",
+                "bondCode": "200017X2.IB",
+                "tradeMarket": "银行间",
+                "bidStyle": "混合式",
+                "bidTime": "10:35-11:35",
+                "chinaBondValuation": "1.1825",
+                "mireBate": "0.08",
+                "weightedinterestrate": "3.1551",
+                "marginalinterestrate": "3.1955",
+                "overallmultiples": "3.834",
+                "marginalmultiples": "1.47",
+                "foreCast": "3.17-3.21",
+                "couponType": "附息",
+                "issueType": "公募",
+                "referenceYield": "3.16",
+                "issuePrice": "101.32",
+                "guarantor": "无",
+                "expiredDate": "27-12-3 上午12:00",
+                "industry": " ",
+                "source": "0",
+                "iscast": "0",
+                "cancelIssue": "0",
+                "delayDays": "0",
+                "iszt": "一创在团",
+                "bondTypeCode": "001",
+                "bondType": "9223372036854775681",
+                "bondIdRefor": "",
+                "typeRefor": "",
+                "fileQuantity": "6",
+                "fileQuantityWgg": "0",
+                "updateDay": "2",
+                "suggestion": "0",
+                "isPanda": "0",
+                "surplusBondTerm": "2.0027",
+                "suggestionReason": "2524254656",
+                "grade": "100",
+                "issuUpdateTime": "2025-06-19",
+                "biddingType": "2"
+            }
+        ]
+    },
+    "success": true,
+    "fail": false
+}
+2025-12-02 16:46:44 - 维护债券 - INFO - 变量提取:
+2025-12-02 16:46:44 - 维护债券 - INFO -   id: 19851027
+2025-12-02 16:46:44 - 维护债券 - INFO -   bondCode: 200017X2.IB
+2025-12-02 16:46:44 - 维护债券 - INFO - 验证结果:
+2025-12-02 16:46:44 - 维护债券 - INFO -   ✅ $.status_code == 200 -> 实际: 200
+2025-12-02 16:46:44 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 16:46:44 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 0.60秒
+2025-12-02 16:46:44 - 维护债券 - INFO - ============================================================
+2025-12-02 16:46:44 - 维护债券 - INFO - 
+2025-12-02 16:46:44 - 维护债券 - INFO - 请求详情:
+2025-12-02 16:46:44 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 16:46:44 - 维护债券 - INFO -   方法: POST
+2025-12-02 16:46:44 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer1 a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 16:46:44 - 维护债券 - INFO -   参数: {}
+2025-12-02 16:46:44 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 16:46:44 - 维护债券 - INFO - 响应详情:
+2025-12-02 16:46:44 - 维护债券 - INFO -   状态码: 401
+2025-12-02 16:46:44 - 维护债券 - INFO -   响应时间: 0.137008秒
+2025-12-02 16:46:44 - 维护债券 - INFO -   响应数据: 
+"<InvalidTokenException><error>invalid_token</error><error_description>1 a499695c-5a27-4dc3-a59b-5f3057d08a43</error_description></InvalidTokenException>"
+2025-12-02 16:46:44 - 维护债券 - INFO - 验证结果:
+2025-12-02 16:46:44 - 维护债券 - INFO -   ✅ $.status_code == 401 -> 实际: 401
+2025-12-02 16:46:44 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 16:46:44 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 0.14秒
+2025-12-02 16:46:44 - 维护债券 - INFO - ============================================================
+2025-12-02 16:46:44 - 维护债券 - INFO - 
+2025-12-02 17:04:12 - 维护债券 - INFO - 请求详情:
+2025-12-02 17:04:12 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 17:04:12 - 维护债券 - INFO -   方法: POST
+2025-12-02 17:04:12 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 17:04:12 - 维护债券 - INFO -   参数: {}
+2025-12-02 17:04:12 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 17:04:17 - 维护债券 - INFO - 响应详情:
+2025-12-02 17:04:17 - 维护债券 - INFO -   状态码: 200
+2025-12-02 17:04:17 - 维护债券 - INFO -   响应时间: 5.45971秒
+2025-12-02 17:04:17 - 维护债券 - INFO -   响应数据: 
+{
+    "code": 200,
+    "message": "SUCCESS",
+    "data": {
+        "totalPages": 1,
+        "totalElements": 1,
+        "content": [
+            {
+                "id": "19851027",
+                "issueDate": "2025-12-01",
+                "issueEnddate": "2025-12-01",
+                "regional": "北京",
+                "bondAbbr": "20附息国债17(续2)",
+                "bondName": "2020年记账式附息(十七期)国债(续2)",
+                "bondTerm": "7.00",
+                "issuingScale": "500",
+                "issuer": "中华人民共和国财政部",
+                "issuerCode": "2000850",
+                "payDate": "2025-12-01",
+                "listingDate": "2025-12-01",
+                "updateTime": "2025-12-01 23:30:01",
+                "couponRate": "3.28",
+                "biginterval": "待定",
+                "smallinterval": "待定",
+                "groupType": "llz",
+                "bondTypeDes": "国债",
+                "bondCode": "200017X2.IB",
+                "tradeMarket": "银行间",
+                "bidStyle": "混合式",
+                "bidTime": "10:35-11:35",
+                "chinaBondValuation": "1.1825",
+                "mireBate": "0.08",
+                "weightedinterestrate": "3.1551",
+                "marginalinterestrate": "3.1955",
+                "overallmultiples": "3.834",
+                "marginalmultiples": "1.47",
+                "foreCast": "3.17-3.21",
+                "couponType": "附息",
+                "issueType": "公募",
+                "referenceYield": "3.16",
+                "issuePrice": "101.32",
+                "guarantor": "无",
+                "expiredDate": "27-12-3 上午12:00",
+                "industry": " ",
+                "source": "0",
+                "iscast": "0",
+                "cancelIssue": "0",
+                "delayDays": "0",
+                "iszt": "一创在团",
+                "bondTypeCode": "001",
+                "bondType": "9223372036854775681",
+                "bondIdRefor": "",
+                "typeRefor": "",
+                "fileQuantity": "6",
+                "fileQuantityWgg": "0",
+                "updateDay": "2",
+                "suggestion": "0",
+                "isPanda": "0",
+                "surplusBondTerm": "2.0027",
+                "suggestionReason": "2524254656",
+                "grade": "100",
+                "issuUpdateTime": "2025-06-19",
+                "biddingType": "2"
+            }
+        ]
+    },
+    "success": true,
+    "fail": false
+}
+2025-12-02 17:04:17 - 维护债券 - INFO - 变量提取:
+2025-12-02 17:04:17 - 维护债券 - INFO -   id: 19851027
+2025-12-02 17:04:17 - 维护债券 - INFO -   bondCode: 200017X2.IB
+2025-12-02 17:04:17 - 维护债券 - INFO - 验证结果:
+2025-12-02 17:04:17 - 维护债券 - INFO -   ✅ $.status_code == 200 -> 实际: 200
+2025-12-02 17:04:17 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 17:04:17 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 5.46秒
+2025-12-02 17:04:17 - 维护债券 - INFO - ============================================================
+2025-12-02 17:04:17 - 维护债券 - INFO - 
+2025-12-02 17:04:28 - 维护债券 - INFO - 请求详情:
+2025-12-02 17:04:28 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 17:04:28 - 维护债券 - INFO -   方法: POST
+2025-12-02 17:04:28 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer1 a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 17:04:28 - 维护债券 - INFO -   参数: {}
+2025-12-02 17:04:28 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 17:04:29 - 维护债券 - INFO - 响应详情:
+2025-12-02 17:04:29 - 维护债券 - INFO -   状态码: 401
+2025-12-02 17:04:29 - 维护债券 - INFO -   响应时间: 0.520415秒
+2025-12-02 17:04:29 - 维护债券 - INFO -   响应数据: 
+"<InvalidTokenException><error>invalid_token</error><error_description>1 a499695c-5a27-4dc3-a59b-5f3057d08a43</error_description></InvalidTokenException>"
+2025-12-02 17:04:29 - 维护债券 - INFO - 验证结果:
+2025-12-02 17:04:29 - 维护债券 - INFO -   ✅ $.status_code == 401 -> 实际: 401
+2025-12-02 17:04:29 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 17:04:29 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 0.52秒
+2025-12-02 17:04:29 - 维护债券 - INFO - ============================================================
+2025-12-02 17:04:29 - 维护债券 - INFO - 
+2025-12-02 17:16:01 - 维护债券 - INFO - 请求详情:
+2025-12-02 17:16:01 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 17:16:01 - 维护债券 - INFO -   方法: POST
+2025-12-02 17:16:01 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 17:16:01 - 维护债券 - INFO -   参数: {}
+2025-12-02 17:16:01 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 17:16:03 - 维护债券 - INFO - 响应详情:
+2025-12-02 17:16:03 - 维护债券 - INFO -   状态码: 200
+2025-12-02 17:16:03 - 维护债券 - INFO -   响应时间: 1.704468秒
+2025-12-02 17:16:03 - 维护债券 - INFO -   响应数据: 
+{
+    "code": 200,
+    "message": "SUCCESS",
+    "data": {
+        "totalPages": 1,
+        "totalElements": 1,
+        "content": [
+            {
+                "id": "19851027",
+                "issueDate": "2025-12-01",
+                "issueEnddate": "2025-12-01",
+                "regional": "北京",
+                "bondAbbr": "20附息国债17(续2)",
+                "bondName": "2020年记账式附息(十七期)国债(续2)",
+                "bondTerm": "7.00",
+                "issuingScale": "500",
+                "issuer": "中华人民共和国财政部",
+                "issuerCode": "2000850",
+                "payDate": "2025-12-01",
+                "listingDate": "2025-12-01",
+                "updateTime": "2025-12-01 23:30:01",
+                "couponRate": "3.28",
+                "biginterval": "待定",
+                "smallinterval": "待定",
+                "groupType": "llz",
+                "bondTypeDes": "国债",
+                "bondCode": "200017X2.IB",
+                "tradeMarket": "银行间",
+                "bidStyle": "混合式",
+                "bidTime": "10:35-11:35",
+                "chinaBondValuation": "1.1825",
+                "mireBate": "0.08",
+                "weightedinterestrate": "3.1551",
+                "marginalinterestrate": "3.1955",
+                "overallmultiples": "3.834",
+                "marginalmultiples": "1.47",
+                "foreCast": "3.17-3.21",
+                "couponType": "附息",
+                "issueType": "公募",
+                "referenceYield": "3.16",
+                "issuePrice": "101.32",
+                "guarantor": "无",
+                "expiredDate": "27-12-3 上午12:00",
+                "industry": " ",
+                "source": "0",
+                "iscast": "0",
+                "cancelIssue": "0",
+                "delayDays": "0",
+                "iszt": "一创在团",
+                "bondTypeCode": "001",
+                "bondType": "9223372036854775681",
+                "bondIdRefor": "",
+                "typeRefor": "",
+                "fileQuantity": "6",
+                "fileQuantityWgg": "0",
+                "updateDay": "2",
+                "suggestion": "0",
+                "isPanda": "0",
+                "surplusBondTerm": "2.0027",
+                "suggestionReason": "2524254656",
+                "grade": "100",
+                "issuUpdateTime": "2025-06-19",
+                "biddingType": "2"
+            }
+        ]
+    },
+    "success": true,
+    "fail": false
+}
+2025-12-02 17:16:03 - 维护债券 - INFO - 变量提取:
+2025-12-02 17:16:03 - 维护债券 - INFO -   id: 19851027
+2025-12-02 17:16:03 - 维护债券 - INFO -   bondCode: 200017X2.IB
+2025-12-02 17:16:03 - 维护债券 - INFO - 验证结果:
+2025-12-02 17:16:03 - 维护债券 - INFO -   ✅ $.status_code == 200 -> 实际: 200
+2025-12-02 17:16:03 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 17:16:03 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 1.70秒
+2025-12-02 17:16:03 - 维护债券 - INFO - ============================================================
+2025-12-02 17:16:03 - 维护债券 - INFO - 
+2025-12-02 17:16:03 - 维护债券 - INFO - 请求详情:
+2025-12-02 17:16:03 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 17:16:03 - 维护债券 - INFO -   方法: POST
+2025-12-02 17:16:03 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer1 a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 17:16:03 - 维护债券 - INFO -   参数: {}
+2025-12-02 17:16:03 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 17:16:03 - 维护债券 - INFO - 响应详情:
+2025-12-02 17:16:03 - 维护债券 - INFO -   状态码: 401
+2025-12-02 17:16:03 - 维护债券 - INFO -   响应时间: 0.113419秒
+2025-12-02 17:16:03 - 维护债券 - INFO -   响应数据: 
+"<InvalidTokenException><error>invalid_token</error><error_description>1 a499695c-5a27-4dc3-a59b-5f3057d08a43</error_description></InvalidTokenException>"
+2025-12-02 17:16:03 - 维护债券 - INFO - 验证结果:
+2025-12-02 17:16:03 - 维护债券 - INFO -   ✅ $.status_code == 401 -> 实际: 401
+2025-12-02 17:16:03 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 17:16:03 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 0.11秒
+2025-12-02 17:16:03 - 维护债券 - INFO - ============================================================
+2025-12-02 17:16:03 - 维护债券 - INFO - 
+2025-12-02 17:18:02 - 维护债券 - INFO - 请求详情:
+2025-12-02 17:18:02 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 17:18:02 - 维护债券 - INFO -   方法: POST
+2025-12-02 17:18:02 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 17:18:02 - 维护债券 - INFO -   参数: {}
+2025-12-02 17:18:02 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 17:18:02 - 维护债券 - INFO - 响应详情:
+2025-12-02 17:18:02 - 维护债券 - INFO -   状态码: 200
+2025-12-02 17:18:02 - 维护债券 - INFO -   响应时间: 0.704693秒
+2025-12-02 17:18:02 - 维护债券 - INFO -   响应数据: 
+{
+    "code": 200,
+    "message": "SUCCESS",
+    "data": {
+        "totalPages": 1,
+        "totalElements": 1,
+        "content": [
+            {
+                "id": "19851027",
+                "issueDate": "2025-12-01",
+                "issueEnddate": "2025-12-01",
+                "regional": "北京",
+                "bondAbbr": "20附息国债17(续2)",
+                "bondName": "2020年记账式附息(十七期)国债(续2)",
+                "bondTerm": "7.00",
+                "issuingScale": "500",
+                "issuer": "中华人民共和国财政部",
+                "issuerCode": "2000850",
+                "payDate": "2025-12-01",
+                "listingDate": "2025-12-01",
+                "updateTime": "2025-12-01 23:30:01",
+                "couponRate": "3.28",
+                "biginterval": "待定",
+                "smallinterval": "待定",
+                "groupType": "llz",
+                "bondTypeDes": "国债",
+                "bondCode": "200017X2.IB",
+                "tradeMarket": "银行间",
+                "bidStyle": "混合式",
+                "bidTime": "10:35-11:35",
+                "chinaBondValuation": "1.1825",
+                "mireBate": "0.08",
+                "weightedinterestrate": "3.1551",
+                "marginalinterestrate": "3.1955",
+                "overallmultiples": "3.834",
+                "marginalmultiples": "1.47",
+                "foreCast": "3.17-3.21",
+                "couponType": "附息",
+                "issueType": "公募",
+                "referenceYield": "3.16",
+                "issuePrice": "101.32",
+                "guarantor": "无",
+                "expiredDate": "27-12-3 上午12:00",
+                "industry": " ",
+                "source": "0",
+                "iscast": "0",
+                "cancelIssue": "0",
+                "delayDays": "0",
+                "iszt": "一创在团",
+                "bondTypeCode": "001",
+                "bondType": "9223372036854775681",
+                "bondIdRefor": "",
+                "typeRefor": "",
+                "fileQuantity": "6",
+                "fileQuantityWgg": "0",
+                "updateDay": "2",
+                "suggestion": "0",
+                "isPanda": "0",
+                "surplusBondTerm": "2.0027",
+                "suggestionReason": "2524254656",
+                "grade": "100",
+                "issuUpdateTime": "2025-06-19",
+                "biddingType": "2"
+            }
+        ]
+    },
+    "success": true,
+    "fail": false
+}
+2025-12-02 17:18:02 - 维护债券 - INFO - 变量提取:
+2025-12-02 17:18:02 - 维护债券 - INFO -   id: 19851027
+2025-12-02 17:18:02 - 维护债券 - INFO -   bondCode: 200017X2.IB
+2025-12-02 17:18:02 - 维护债券 - INFO - 验证结果:
+2025-12-02 17:18:02 - 维护债券 - INFO -   ✅ $.status_code == 200 -> 实际: 200
+2025-12-02 17:18:02 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 17:18:02 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 0.70秒
+2025-12-02 17:18:02 - 维护债券 - INFO - ============================================================
+2025-12-02 17:18:02 - 维护债券 - INFO - 
+2025-12-02 17:18:02 - 维护债券 - INFO - 请求详情:
+2025-12-02 17:18:02 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 17:18:02 - 维护债券 - INFO -   方法: POST
+2025-12-02 17:18:02 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer1 a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 17:18:02 - 维护债券 - INFO -   参数: {}
+2025-12-02 17:18:02 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 17:18:03 - 维护债券 - INFO - 响应详情:
+2025-12-02 17:18:03 - 维护债券 - INFO -   状态码: 401
+2025-12-02 17:18:03 - 维护债券 - INFO -   响应时间: 0.113728秒
+2025-12-02 17:18:03 - 维护债券 - INFO -   响应数据: 
+"<InvalidTokenException><error>invalid_token</error><error_description>1 a499695c-5a27-4dc3-a59b-5f3057d08a43</error_description></InvalidTokenException>"
+2025-12-02 17:18:03 - 维护债券 - INFO - 验证结果:
+2025-12-02 17:18:03 - 维护债券 - INFO -   ✅ $.status_code == 401 -> 实际: 401
+2025-12-02 17:18:03 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 17:18:03 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 0.11秒
+2025-12-02 17:18:03 - 维护债券 - INFO - ============================================================
+2025-12-02 17:18:03 - 维护债券 - INFO - 
+2025-12-02 17:19:06 - 维护债券 - INFO - 请求详情:
+2025-12-02 17:19:06 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 17:19:06 - 维护债券 - INFO -   方法: POST
+2025-12-02 17:19:06 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 17:19:06 - 维护债券 - INFO -   参数: {}
+2025-12-02 17:19:06 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 17:19:07 - 维护债券 - INFO - 响应详情:
+2025-12-02 17:19:07 - 维护债券 - INFO -   状态码: 200
+2025-12-02 17:19:07 - 维护债券 - INFO -   响应时间: 0.96764秒
+2025-12-02 17:19:07 - 维护债券 - INFO -   响应数据: 
+{
+    "code": 200,
+    "message": "SUCCESS",
+    "data": {
+        "totalPages": 1,
+        "totalElements": 1,
+        "content": [
+            {
+                "id": "19851027",
+                "issueDate": "2025-12-01",
+                "issueEnddate": "2025-12-01",
+                "regional": "北京",
+                "bondAbbr": "20附息国债17(续2)",
+                "bondName": "2020年记账式附息(十七期)国债(续2)",
+                "bondTerm": "7.00",
+                "issuingScale": "500",
+                "issuer": "中华人民共和国财政部",
+                "issuerCode": "2000850",
+                "payDate": "2025-12-01",
+                "listingDate": "2025-12-01",
+                "updateTime": "2025-12-01 23:30:01",
+                "couponRate": "3.28",
+                "biginterval": "待定",
+                "smallinterval": "待定",
+                "groupType": "llz",
+                "bondTypeDes": "国债",
+                "bondCode": "200017X2.IB",
+                "tradeMarket": "银行间",
+                "bidStyle": "混合式",
+                "bidTime": "10:35-11:35",
+                "chinaBondValuation": "1.1825",
+                "mireBate": "0.08",
+                "weightedinterestrate": "3.1551",
+                "marginalinterestrate": "3.1955",
+                "overallmultiples": "3.834",
+                "marginalmultiples": "1.47",
+                "foreCast": "3.17-3.21",
+                "couponType": "附息",
+                "issueType": "公募",
+                "referenceYield": "3.16",
+                "issuePrice": "101.32",
+                "guarantor": "无",
+                "expiredDate": "27-12-3 上午12:00",
+                "industry": " ",
+                "source": "0",
+                "iscast": "0",
+                "cancelIssue": "0",
+                "delayDays": "0",
+                "iszt": "一创在团",
+                "bondTypeCode": "001",
+                "bondType": "9223372036854775681",
+                "bondIdRefor": "",
+                "typeRefor": "",
+                "fileQuantity": "6",
+                "fileQuantityWgg": "0",
+                "updateDay": "2",
+                "suggestion": "0",
+                "isPanda": "0",
+                "surplusBondTerm": "2.0027",
+                "suggestionReason": "2524254656",
+                "grade": "100",
+                "issuUpdateTime": "2025-06-19",
+                "biddingType": "2"
+            }
+        ]
+    },
+    "success": true,
+    "fail": false
+}
+2025-12-02 17:19:07 - 维护债券 - INFO - 变量提取:
+2025-12-02 17:19:07 - 维护债券 - INFO -   id: 19851027
+2025-12-02 17:19:07 - 维护债券 - INFO -   bondCode: 200017X2.IB
+2025-12-02 17:19:07 - 维护债券 - INFO - 验证结果:
+2025-12-02 17:19:07 - 维护债券 - INFO -   ✅ $.status_code == 200 -> 实际: 200
+2025-12-02 17:19:07 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 17:19:07 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 0.97秒
+2025-12-02 17:19:07 - 维护债券 - INFO - ============================================================
+2025-12-02 17:19:07 - 维护债券 - INFO - 
+2025-12-02 17:19:08 - 维护债券 - INFO - 请求详情:
+2025-12-02 17:19:08 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 17:19:08 - 维护债券 - INFO -   方法: POST
+2025-12-02 17:19:08 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer1 a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 17:19:08 - 维护债券 - INFO -   参数: {}
+2025-12-02 17:19:08 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 17:19:08 - 维护债券 - INFO - 响应详情:
+2025-12-02 17:19:08 - 维护债券 - INFO -   状态码: 401
+2025-12-02 17:19:08 - 维护债券 - INFO -   响应时间: 0.125873秒
+2025-12-02 17:19:08 - 维护债券 - INFO -   响应数据: 
+"<InvalidTokenException><error>invalid_token</error><error_description>1 a499695c-5a27-4dc3-a59b-5f3057d08a43</error_description></InvalidTokenException>"
+2025-12-02 17:19:08 - 维护债券 - INFO - 验证结果:
+2025-12-02 17:19:08 - 维护债券 - INFO -   ✅ $.status_code == 401 -> 实际: 401
+2025-12-02 17:19:08 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 17:19:08 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 0.13秒
+2025-12-02 17:19:08 - 维护债券 - INFO - ============================================================
+2025-12-02 17:19:08 - 维护债券 - INFO - 
+2025-12-02 17:30:29 - 维护债券 - INFO - 请求详情:
+2025-12-02 17:30:29 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 17:30:29 - 维护债券 - INFO -   方法: POST
+2025-12-02 17:30:29 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 17:30:29 - 维护债券 - INFO -   参数: {}
+2025-12-02 17:30:29 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 17:30:30 - 维护债券 - INFO - 响应详情:
+2025-12-02 17:30:30 - 维护债券 - INFO -   状态码: 200
+2025-12-02 17:30:30 - 维护债券 - INFO -   响应时间: 0.529883秒
+2025-12-02 17:30:30 - 维护债券 - INFO -   响应数据: 
+{
+    "code": 200,
+    "message": "SUCCESS",
+    "data": {
+        "totalPages": 1,
+        "totalElements": 1,
+        "content": [
+            {
+                "id": "19851027",
+                "issueDate": "2025-12-01",
+                "issueEnddate": "2025-12-01",
+                "regional": "北京",
+                "bondAbbr": "20附息国债17(续2)",
+                "bondName": "2020年记账式附息(十七期)国债(续2)",
+                "bondTerm": "7.00",
+                "issuingScale": "500",
+                "issuer": "中华人民共和国财政部",
+                "issuerCode": "2000850",
+                "payDate": "2025-12-01",
+                "listingDate": "2025-12-01",
+                "updateTime": "2025-12-01 23:30:01",
+                "couponRate": "3.28",
+                "biginterval": "待定",
+                "smallinterval": "待定",
+                "groupType": "llz",
+                "bondTypeDes": "国债",
+                "bondCode": "200017X2.IB",
+                "tradeMarket": "银行间",
+                "bidStyle": "混合式",
+                "bidTime": "10:35-11:35",
+                "chinaBondValuation": "1.1825",
+                "mireBate": "0.08",
+                "weightedinterestrate": "3.1551",
+                "marginalinterestrate": "3.1955",
+                "overallmultiples": "3.834",
+                "marginalmultiples": "1.47",
+                "foreCast": "3.17-3.21",
+                "couponType": "附息",
+                "issueType": "公募",
+                "referenceYield": "3.16",
+                "issuePrice": "101.32",
+                "guarantor": "无",
+                "expiredDate": "27-12-3 上午12:00",
+                "industry": " ",
+                "source": "0",
+                "iscast": "0",
+                "cancelIssue": "0",
+                "delayDays": "0",
+                "iszt": "一创在团",
+                "bondTypeCode": "001",
+                "bondType": "9223372036854775681",
+                "bondIdRefor": "",
+                "typeRefor": "",
+                "fileQuantity": "6",
+                "fileQuantityWgg": "0",
+                "updateDay": "2",
+                "suggestion": "0",
+                "isPanda": "0",
+                "surplusBondTerm": "2.0027",
+                "suggestionReason": "2524254656",
+                "grade": "100",
+                "issuUpdateTime": "2025-06-19",
+                "biddingType": "2"
+            }
+        ]
+    },
+    "success": true,
+    "fail": false
+}
+2025-12-02 17:30:30 - 维护债券 - INFO - 变量提取:
+2025-12-02 17:30:30 - 维护债券 - INFO -   id: 19851027
+2025-12-02 17:30:30 - 维护债券 - INFO -   bondCode: 200017X2.IB
+2025-12-02 17:30:30 - 维护债券 - INFO - 验证结果:
+2025-12-02 17:30:30 - 维护债券 - INFO -   ✅ $.status_code == 200 -> 实际: 200
+2025-12-02 17:30:30 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 17:30:30 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 0.53秒
+2025-12-02 17:30:30 - 维护债券 - INFO - ============================================================
+2025-12-02 17:30:30 - 维护债券 - INFO - 
+2025-12-02 17:30:30 - 维护债券 - INFO - 请求详情:
+2025-12-02 17:30:30 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 17:30:30 - 维护债券 - INFO -   方法: POST
+2025-12-02 17:30:30 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer1 a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 17:30:30 - 维护债券 - INFO -   参数: {}
+2025-12-02 17:30:30 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 17:30:30 - 维护债券 - INFO - 响应详情:
+2025-12-02 17:30:30 - 维护债券 - INFO -   状态码: 401
+2025-12-02 17:30:30 - 维护债券 - INFO -   响应时间: 0.10517秒
+2025-12-02 17:30:30 - 维护债券 - INFO -   响应数据: 
+"<InvalidTokenException><error>invalid_token</error><error_description>1 a499695c-5a27-4dc3-a59b-5f3057d08a43</error_description></InvalidTokenException>"
+2025-12-02 17:30:30 - 维护债券 - INFO - 验证结果:
+2025-12-02 17:30:30 - 维护债券 - INFO -   ✅ $.status_code == 401 -> 实际: 401
+2025-12-02 17:30:30 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 17:30:30 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 0.11秒
+2025-12-02 17:30:30 - 维护债券 - INFO - ============================================================
+2025-12-02 17:30:30 - 维护债券 - INFO - 
+2025-12-02 17:30:59 - 维护债券 - INFO - 请求详情:
+2025-12-02 17:30:59 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 17:30:59 - 维护债券 - INFO -   方法: POST
+2025-12-02 17:30:59 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 17:30:59 - 维护债券 - INFO -   参数: {}
+2025-12-02 17:30:59 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 17:31:00 - 维护债券 - INFO - 响应详情:
+2025-12-02 17:31:00 - 维护债券 - INFO -   状态码: 200
+2025-12-02 17:31:00 - 维护债券 - INFO -   响应时间: 0.436405秒
+2025-12-02 17:31:00 - 维护债券 - INFO -   响应数据: 
+{
+    "code": 200,
+    "message": "SUCCESS",
+    "data": {
+        "totalPages": 1,
+        "totalElements": 1,
+        "content": [
+            {
+                "id": "19851027",
+                "issueDate": "2025-12-01",
+                "issueEnddate": "2025-12-01",
+                "regional": "北京",
+                "bondAbbr": "20附息国债17(续2)",
+                "bondName": "2020年记账式附息(十七期)国债(续2)",
+                "bondTerm": "7.00",
+                "issuingScale": "500",
+                "issuer": "中华人民共和国财政部",
+                "issuerCode": "2000850",
+                "payDate": "2025-12-01",
+                "listingDate": "2025-12-01",
+                "updateTime": "2025-12-01 23:30:01",
+                "couponRate": "3.28",
+                "biginterval": "待定",
+                "smallinterval": "待定",
+                "groupType": "llz",
+                "bondTypeDes": "国债",
+                "bondCode": "200017X2.IB",
+                "tradeMarket": "银行间",
+                "bidStyle": "混合式",
+                "bidTime": "10:35-11:35",
+                "chinaBondValuation": "1.1825",
+                "mireBate": "0.08",
+                "weightedinterestrate": "3.1551",
+                "marginalinterestrate": "3.1955",
+                "overallmultiples": "3.834",
+                "marginalmultiples": "1.47",
+                "foreCast": "3.17-3.21",
+                "couponType": "附息",
+                "issueType": "公募",
+                "referenceYield": "3.16",
+                "issuePrice": "101.32",
+                "guarantor": "无",
+                "expiredDate": "27-12-3 上午12:00",
+                "industry": " ",
+                "source": "0",
+                "iscast": "0",
+                "cancelIssue": "0",
+                "delayDays": "0",
+                "iszt": "一创在团",
+                "bondTypeCode": "001",
+                "bondType": "9223372036854775681",
+                "bondIdRefor": "",
+                "typeRefor": "",
+                "fileQuantity": "6",
+                "fileQuantityWgg": "0",
+                "updateDay": "2",
+                "suggestion": "0",
+                "isPanda": "0",
+                "surplusBondTerm": "2.0027",
+                "suggestionReason": "2524254656",
+                "grade": "100",
+                "issuUpdateTime": "2025-06-19",
+                "biddingType": "2"
+            }
+        ]
+    },
+    "success": true,
+    "fail": false
+}
+2025-12-02 17:31:00 - 维护债券 - INFO - 变量提取:
+2025-12-02 17:31:00 - 维护债券 - INFO -   id: 19851027
+2025-12-02 17:31:00 - 维护债券 - INFO -   bondCode: 200017X2.IB
+2025-12-02 17:31:00 - 维护债券 - INFO - 验证结果:
+2025-12-02 17:31:00 - 维护债券 - INFO -   ✅ $.status_code == 200 -> 实际: 200
+2025-12-02 17:31:00 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 17:31:00 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 0.44秒
+2025-12-02 17:31:00 - 维护债券 - INFO - ============================================================
+2025-12-02 17:31:00 - 维护债券 - INFO - 
+2025-12-02 17:31:00 - 维护债券 - INFO - 请求详情:
+2025-12-02 17:31:00 - 维护债券 - INFO -   URL: https://10.224.207.68/api/mgt/index/queryMergeBonds
+2025-12-02 17:31:00 - 维护债券 - INFO -   方法: POST
+2025-12-02 17:31:00 - 维护债券 - INFO -   请求头: {'Content-Type': 'application/json;charset=UTF-8', 'Authorization': 'bearer1 a499695c-5a27-4dc3-a59b-5f3057d08a43'}
+2025-12-02 17:31:00 - 维护债券 - INFO -   参数: {}
+2025-12-02 17:31:00 - 维护债券 - INFO -   数据: {'param': {'isDeclared': True, 'startIssueDate': '2025-12-01', 'endIssueDate': '2025-12-01', 'groupTypes': ['LLZ'], 'filteryx': None, 'bondTypes': ['GZ'], 'tradeMarkets': None, 'bondTerm': [0, 100], 'startPayDate': None, 'endPayDate': None, 'payDate': None, 'keyword': '', 'tremTip': 'year', 'dockingSales': []}, 'pagination': {'pageNum': 1, 'pageSize': 100}}
+2025-12-02 17:31:00 - 维护债券 - INFO - 响应详情:
+2025-12-02 17:31:00 - 维护债券 - INFO -   状态码: 401
+2025-12-02 17:31:00 - 维护债券 - INFO -   响应时间: 0.117054秒
+2025-12-02 17:31:00 - 维护债券 - INFO -   响应数据: 
+"<InvalidTokenException><error>invalid_token</error><error_description>1 a499695c-5a27-4dc3-a59b-5f3057d08a43</error_description></InvalidTokenException>"
+2025-12-02 17:31:00 - 维护债券 - INFO - 验证结果:
+2025-12-02 17:31:00 - 维护债券 - INFO -   ✅ $.status_code == 401 -> 实际: 401
+2025-12-02 17:31:00 - 维护债券 - INFO - ----------------------------------------
+2025-12-02 17:31:00 - 维护债券 - INFO - 测试用例执行成功 🎉 - 耗时: 0.12秒
+2025-12-02 17:31:00 - 维护债券 - INFO - ============================================================
+2025-12-02 17:31:00 - 维护债券 - INFO - 

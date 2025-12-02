@@ -1,0 +1,42 @@
+base:
+  default_url: 'https://10.224.207.68'
+
+log:
+  log_name: log
+  log_level: debug
+  log_format: '[%(asctime)s] %(filename)s->%(funcName)s line:%(lineno)d [%(levelname)s] %(message)s'
+
+Project:
+  # 项目名称
+  ProjectName: 吐哈接口测试
+  # 测试人员名称，作用于自动生成代码的作者，以及发送企业微信、钉钉通知的测试负责人
+  TestName: 溪风习习
+  # 数据库类型：1：MysqlDB 2：OracleDB
+  DBType: OracleDB
+  # 报告通知类型：0：不通知 1：钉钉 2：企业微信通知 3：邮件通知
+  NotificationType: 0
+
+# MySql相关配置
+MysqlDB:
+  host:
+  user:
+  password:
+  db:
+
+# Oracle相关配置
+OracleDB:
+  host:
+  post:
+  service:
+  user:
+  password:
+
+# 钉钉相关配置
+DingTalk:
+  webhook:
+  secret:
+  # 钉钉消息推送类型：1：text 2:link 3:markdown
+  send_type: markdown
+  # 钉钉消息@对象,列表格式,不填则默认所有人
+  mobiles:
+    -
