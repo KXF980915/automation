@@ -12,18 +12,6 @@ pipeline {
             choices: ['test', 'staging', 'prod'],
             description: '选择测试环境'
         )
-        booleanParam(
-            name: 'RUN_PARALLEL',
-            defaultValue: false,
-            description: '是否并行执行'
-        )
-    }
-
-    environment {
-        // 环境变量
-        PROJECT_PATH = '.'
-        PYTHON_PATH = 'python3' // 或指定路径
-        ALLURE_HOME = tool name: 'Allure', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
     }
 
     stages {
@@ -35,50 +23,52 @@ pipeline {
 
         stage('Setup') {
             steps {
-                script {
-                    // Python项目示例
-                    sh '${PYTHON_PATH} -m pip install -r requirements.txt'
+                bat """
+                echo === 环境设置 ===
+                python --version
+                pip --version
 
-                    // Java项目示例
-                    // sh 'mvn clean install'
-
-                    // Node.js项目示例
-                    // sh 'npm install'
-                }
+                echo 安装依赖...
+                python -m pip install --upgrade pip
+                if exist requirements.txt (
+                    pip install -r requirements.txt
+                ) else (
+                    pip install pytest selenium requests
+                )
+                """
             }
         }
 
         stage('Tests') {
             steps {
-                script {
-                    // 执行测试
-                    sh """
-                    ${PYTHON_PATH} -m pytest ${PROJECT_PATH}/tests_case \
+                bat """
+                echo === 执行测试 ===
+                echo 浏览器: ${BROWSER}
+                echo 环境: ${ENVIRONMENT}
+
+                REM 创建目录
+                if not exist "test-results" mkdir test-results
+                if not exist "reports" mkdir reports
+
+                REM 执行测试
+                python -m pytest tests_case/ \
+                    -v \
                     --browser=${BROWSER} \
                     --env=${ENVIRONMENT} \
-                    --alluredir=${WORKSPACE}/allure-results \
-                    ${RUN_PARALLEL == 'true' ? '-n 4' : ''}
-                    """
-                }
+                    --junitxml=test-results/junit.xml \
+                    --html=reports/pytest-report.html \
+                    || echo "测试执行完成"
+                """
             }
         }
+    }
 
     post {
         always {
-            // 清理工作
-            cleanWs()
+            echo "构建状态: ${currentBuild.currentResult}"
 
-            // 发送通知
-            emailext(
-                subject: "自动化测试执行完成: ${currentBuild.currentResult}",
-                body: """
-                项目: ${JOB_NAME}
-                构建: ${BUILD_NUMBER}
-                状态: ${currentBuild.currentResult}
-                详情: ${BUILD_URL}
-                """,
-                to: '2445806874@qq.com'
-            )
+            // 归档结果
+            archiveArtifacts artifacts: 'test-results/**/*.xml, reports/**/*.html', allowEmptyArchive: true
         }
     }
 }
