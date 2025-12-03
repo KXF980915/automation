@@ -1,0 +1,27 @@
+# IDE和编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 依赖和包
+node_modules/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# 测试结果和报告
+test-results/
+allure-results/
+reports/
+screenshots/
+logs/
+
+# 环境配置
+.env
+config/local.properties
+
+# Jenkins
+build/
+target/
