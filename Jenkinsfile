@@ -53,7 +53,7 @@ pipeline {
                 script {
                     // 执行测试
                     sh """
-                    ${PYTHON_PATH} -m pytest ${PROJECT_PATH}/tests \
+                    ${PYTHON_PATH} -m pytest ${PROJECT_PATH}/tests_case \
                     --browser=${BROWSER} \
                     --env=${ENVIRONMENT} \
                     --alluredir=${WORKSPACE}/allure-results \
@@ -62,24 +62,6 @@ pipeline {
                 }
             }
         }
-
-        stage('Reports') {
-            steps {
-                script {
-                    // 生成Allure报告
-                    sh "${ALLURE_HOME}/bin/allure generate ${WORKSPACE}/allure-results -o ${WORKSPACE}/allure-report --clean"
-
-                    // 发布报告
-                    allure([
-                        includeProperties: false,
-                        jdk: '',
-                        reportBuildPolicy: 'ALWAYS',
-                        results: [[path: 'allure-results']]
-                    ])
-                }
-            }
-        }
-    }
 
     post {
         always {
