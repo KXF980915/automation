@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+    environment {
+        // 设置Windows命令行编码为UTF-8
+        JAVA_TOOL_OPTIONS = '-Dfile.encoding=UTF-8'
+        PYTHONIOENCODING = 'UTF-8'
+    }
+
     parameters {
         choice(
             name: 'BROWSER',

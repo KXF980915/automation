@@ -1,18 +1,24 @@
-import pytest
+import allure
 
 from common.base_api import TestExecutor as te
 from common.csv_decorator import csv
-from test_case.conftest import login
 
+@allure.feature('登录模块')
 class TestUser:
 
+    @allure.story('登录成功')
+    @allure.title('用户登录成功')
     def test_login(self):
         data = {'username': '17375770915','password':'GJqQ1c3wPgdBCQyG0QnZzA=='}
         te().case('login.yml', 'ebond登录', data)
 
+    @allure.story('扣除外部资金成本累计盈利接口')
+    @allure.title('扣除外部资金成本累计盈利接口')
     def test_query_curve_info(self):
         te().case('partition_table.yml','扣除外部资金成本累计盈利接口')
 
+    @allure.story('维护债券')
+    @allure.title('维护债券')
     @csv(r'D:\automation\csv\login.csv')
     def test_xiao_e(self,data):
         print(data)
