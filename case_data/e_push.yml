@@ -8,7 +8,7 @@ test_cases:
       path: "/api/mgt/index/queryMergeBonds"
       headers: {
         "Content-Type": "application/json;charset=UTF-8",
-        "Authorization": "${token_type} ${access_token}"
+        "Authorization": "${token_typea} ${access_token}"
       }
       json:
         "param": {

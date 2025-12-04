@@ -1,14 +1,17 @@
 # 内部库
+import json
+import traceback
+
 from common.log import test_logger
 from common.os_path import get_object_path
 from common.request_encapsulation import ApiRequest, ApiResponse
 from common.yaml_utils import YamlUtils
 from common.csv_utils import DataReplaceUtils
-
+from common.allure_utils import AllureReport
 
 # 外部库
 from typing import Dict, Any, List
-
+import allure
 
 class TestExecutor:
     """测试执行器 - 协调请求和响应处理"""
@@ -28,42 +31,81 @@ class TestExecutor:
         :param data: yaml文件中需要替换的变量
         :return: 执行结果
         """
-        try:
-            yaml_data = YamlUtils().get_yaml_case(path, case_name)
-            all_variables = self._merge_variables(data)
+        with allure.step(f"执行用例: {case_name}"):
+            try:
+                yaml_data = YamlUtils().get_yaml_case(path, case_name)
+                all_variables = self._merge_variables(data)
 
-            # 变量替换
-            if all_variables:
-                case_data = DataReplaceUtils().replace_variables(yaml_data, all_variables)
-            else:
-                case_data = yaml_data
+                # 变量替换
+                if all_variables:
+                    case_data = DataReplaceUtils().replace_variables(yaml_data, all_variables)
+                else:
+                    case_data = yaml_data
 
-            # 获取请求配置
-            request_config = case_data.get('request', {})
+                # 获取请求配置
+                request_config = case_data.get('request', {})
 
-            # 发送请求
-            response = self.request_api.send_request(
-                request_config,
-                all_variables,
-                case_name
-            )
+                # 发送请求
+                response = self.request_api.send_request(
+                    request_config,
+                    all_variables,
+                    case_name
+                )
+                # 记录请求详情
+                allure.attach(
+                    body=json.dumps(request_config, indent=2, ensure_ascii=False),
+                    name="请求配置",
+                    attachment_type=allure.attachment_type.JSON
+                )
+                # 处理响应
+                result = self.response_api.process_response(response, case_data, case_name)
 
-            # 处理响应
-            result = self.response_api.process_response(response, case_data, case_name)
+                # 将数据附加到Allure报告
+                AllureReport.attach_request_response(
+                    {
+                        'url': request_config.get('url', '') + request_config.get('path', ''),
+                        'method': request_config.get('method'),
+                        'headers': request_config.get('headers', {}),
+                        'params': request_config.get('params', {}),
+                        'data': request_config.get('data', {})
+                    },
+                    result
+                )
 
-            # 保存提取的变量到extract.yml文件
-            self._save_extracted_variables(result.get('extracted_variables', {}))
+                # 变量和验证结果
+                AllureReport.attach_variables(result.get('extracted_variables', {}))
+                AllureReport.attach_validation_results(result.get('validation_results', []))
 
-            # 执行teardown
-            self._execute_teardown(case_data.get('teardown', []))
+                # 保存提取的变量到extract.yml文件
+                self._save_extracted_variables(result.get('extracted_variables', {}))
 
-            return result
-        except Exception as e:
-            self.logger.error(f"用例执行失败: {str(e)}")
-            raise {
-                'success': False,
-                'error': str(e)
-            }
+                # 执行teardown
+                self._execute_teardown(case_data.get('teardown', []))
+
+                if not all(vr.get('pass', False) for vr in result.get('validation_results', [])):
+                    failures = [
+                        f"{vr.get('field')}: {vr.get('message') or '验证失败'}"
+                        for vr in result['validation_results']
+                        if not vr.get('pass', False)
+                    ]
+                    raise AssertionError(f"验证失败:\n" + "\n".join(failures))
+                return result
+            except Exception as e:
+                allure.attach(
+                    body=str(e),
+                    name="执行异常",
+                    attachment_type=allure.attachment_type.TEXT
+                )
+                allure.attach(
+                    body=traceback.format_exc(),
+                    name="异常堆栈",
+                    attachment_type=allure.attachment_type.TEXT
+                )
+                self.logger.error(f"用例执行失败: {str(e)}")
+                raise {
+                    'success': False,
+                    'error': str(e)
+                }
 
 
     def _merge_variables(self, external_variables: Dict[str, Any] = None) -> Dict[str, Any]:

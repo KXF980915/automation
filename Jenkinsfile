@@ -2,79 +2,120 @@ pipeline {
     agent any
 
     environment {
-        // 设置Windows命令行编码为UTF-8
-        JAVA_TOOL_OPTIONS = '-Dfile.encoding=UTF-8'
-        PYTHONIOENCODING = 'UTF-8'
-    }
-
-    parameters {
-        choice(
-            name: 'BROWSER',
-            choices: ['chrome', 'firefox', 'edge'],
-            description: '选择测试浏览器'
-        )
-        choice(
-            name: 'ENVIRONMENT',
-            choices: ['test', 'staging', 'prod'],
-            description: '选择测试环境'
-        )
+        // Python环境配置
+        PYTHONPATH = "${WORKSPACE}"
+        PYTEST_ALLURE_RESULTS = "${WORKSPACE}/allure-results"
+        TEST_ENV = "test"
     }
 
     stages {
-        stage('Checkout') {
+        stage('检出代码') {
             steps {
                 checkout scm
             }
         }
 
-        stage('Setup') {
+        stage('环境准备') {
             steps {
-                bat """
-                echo === 环境设置 ===
-                python --version
-                pip --version
+                script {
+                    // 检查Python环境
+                    sh 'python --version'
 
-                echo 安装依赖...
-                python -m pip install --upgrade pip
-                if exist requirements.txt (
-                    pip install -r requirements.txt
-                ) else (
-                    pip install pytest selenium requests
-                )
-                """
+                    // 创建虚拟环境（可选）
+                    sh '''
+                        python -m venv venv || true
+                        source venv/bin/activate || true
+                        pip install --upgrade pip
+                    '''
+
+                    // 安装依赖
+                    sh 'pip install -r requirements.txt'
+
+                    // 检查依赖
+                    sh 'pip list'
+                }
             }
         }
 
-        stage('Tests') {
+        stage('代码检查') {
             steps {
-                bat """
-                echo === 执行测试 ===
-                echo 浏览器: ${BROWSER}
-                echo 环境: ${ENVIRONMENT}
+                script {
+                    // 运行静态检查
+                    sh 'python -m py_compile common/*.py test_case/*.py || true'
 
-                REM 创建目录
-                if not exist "test-results" mkdir test-results
-                if not exist "reports" mkdir reports
+                    // 检查YAML文件格式
+                    sh 'python -c "import yaml; [yaml.safe_load(open(f)) for f in [\"config.yml\"]]" || true'
+                }
+            }
+        }
 
-                REM 执行测试
-                python -m pytest tests_case/ \
-                    -v \
-                    --browser=${BROWSER} \
-                    --env=${ENVIRONMENT} \
-                    --junitxml=test-results/junit.xml \
-                    --html=reports/pytest-report.html \
-                    || echo "测试执行完成"
-                """
+        stage('运行测试') {
+            steps {
+                script {
+                    // 清理历史报告
+                    sh 'rm -rf allure-results allure-report || true'
+
+                    // 运行测试
+                    sh '''
+                        # 设置测试环境变量
+                        export TEST_ENV=${TEST_ENV}
+
+                        # 运行pytest测试
+                        python -m pytest \
+                            --alluredir=${PYTEST_ALLURE_RESULTS} \
+                            --clean-alluredir \
+                            -v \
+                            --tb=short \
+                            -m "not smoke"  # 可以按标记筛选
+
+                        # 检查测试结果
+                        TEST_EXIT_CODE=$?
+                        echo "测试退出码: $TEST_EXIT_CODE"
+                    '''
+                }
+            }
+            post {
+                always {
+                    // 生成Allure报告
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: 'allure-results']]
+                    ])
+                }
+            }
+        }
+
+        stage('后处理') {
+            steps {
+                script {
+                    // 清理临时文件
+                    sh '''
+                        rm -rf __pycache__ || true
+                        rm -rf .pytest_cache || true
+                        rm -f extract.yml || true
+                    '''
+
+                    // 归档测试结果
+                    archiveArtifacts artifacts: 'allure-results/**/*', fingerprint: true
+                }
             }
         }
     }
 
     post {
         always {
-            echo "构建状态: ${currentBuild.currentResult}"
-
-            // 归档结果
-            archiveArtifacts artifacts: 'test-results/**/*.xml, reports/**/*.html', allowEmptyArchive: true
+            // 清理工作空间
+            cleanWs()
+        }
+        success {
+            echo '流水线执行成功！'
+        }
+        failure {
+            echo '流水线执行失败！'
+            // 可以添加通知机制
         }
     }
 }

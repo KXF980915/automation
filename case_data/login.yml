@@ -36,7 +36,6 @@ test_cases:
         from: "cookies"
         path: "JSESSIONID"
         save_as: "JSESSIONID"
-
     validate:
       - ['$.status_code',==,'200']
 
