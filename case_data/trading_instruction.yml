@@ -1,0 +1,59 @@
+test_suite: "交易指令"
+test_cases:
+  - case_name: "获取债券信息"
+    description: "获取债券信息"
+    request:
+      url: ed_url
+      method: "POST"
+      path: "/api/trade/order/searchBondByContent"
+      headers:
+        Content-Type: "application/json;charset=UTF-8"
+        Authorization: ${token_type} ${access_token}
+      data:
+        { "keyword": "${keyword}","type": "ib" }
+    extract:
+      bondAbbr: "$[0].bondAbbr"
+      bondCode: "$[0].bondCode"
+      trademarket: "$[0].trademarket"
+      code: "$[0].code"
+      name: "$[0].name"
+      bondTypeNum: "$[0].bondTypeNum"
+      id: "$[0].id"
+    validate:
+      - [ '$.status_code',==,'200' ]
+
+  - case_name: "获取到期行权收益率"
+    description: "获取到期行权收益率"
+    request:
+      url: ed_url
+      method: "GET"
+      path: "/api/trade/calc/calculateYield?bondId=${id}&calcMethod=1&netPrice=${netPrice}&settleDate=2026-03-17"
+      headers:
+        Content-Type: "application/json;charset=UTF-8"
+        Authorization: ${token_type} ${access_token}
+    extract:
+      accruedInterest: "$.data.data.accruedInterest"
+      netPrice: "$.data.data.netPrice"
+      yte: "$.data.data.yte"
+      ytm: "$.data.data.ytm"
+      fullPrice: "$.data.data.fullPrice"
+    validate:
+      - [ '$.status_code',==,'200' ]
+
+  - case_name: "获取应计利息总额和结算金额"
+    description: "获取应计利息总额和结算金额"
+    request:
+      url: ed_url
+      method: "GET"
+      path: "/api/trade/calc/calculateYield?bondId=${id}&calcMethod=1&netPrice=${netPrice}&settleDate=2026-03-17"
+      headers:
+        Content-Type: "application/json;charset=UTF-8"
+        Authorization: ${token_type} ${access_token}
+    extract:
+      accruedInterest: "$.data.data.accruedInterest"
+      netPrice: "$.data.data.netPrice"
+      yte: "$.data.data.yte"
+      ytm: "$.data.data.ytm"
+      fullPrice: "$.data.data.fullPrice"
+    validate:
+      - [ '$.status_code',==,'200' ]

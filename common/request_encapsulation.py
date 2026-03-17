@@ -16,8 +16,7 @@ from common.yaml_utils import YamlUtils
 class ApiRequest:
     """接口请求封装"""
 
-    def __init__(self, base_url: str = YamlUtils().read_config("base", "default_url")):
-        self.base_url = base_url
+    def __init__(self):
         self.session = requests.session()
         self.logger = test_logger
 
@@ -36,9 +35,16 @@ class ApiRequest:
             variables = variables or {}
 
             # 构建完整的URL
-            url = request_config.get('url') or self.base_url
-            url = url + request_config.get('path')
-
+            url_source = request_config.get('url')
+            # 判断是不是完整的URL,不是URL就去config.yml找
+            if isinstance(url_source, str) and (url_source.startswith(('http://', 'https://'))):
+                base_url = url_source
+            else:
+                try:
+                    base_url = YamlUtils().read_config('base', url_source)
+                except (KeyError, TypeError):
+                    raise ValueError(f"无效的URL配置: '{url_source}'，既不是URL也不是config.yml中定义的变量")
+            url = base_url + request_config.get('path')
             # 准备请求参数
             method = request_config.get('method', 'GET').upper()
             headers = self._process_headers(request_config.get('headers', {}), variables)
@@ -814,7 +820,6 @@ class ApiResponse:
     def get_all_variables(self) -> Dict[str, Any]:
         """获取所有变量"""
         return self.variables.copy()
-
 
 # if __name__ == '__main__':
 #     api = ApiRequest()
