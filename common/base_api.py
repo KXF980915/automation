@@ -5,8 +5,8 @@ import traceback
 from common.log import test_logger
 from common.os_path import get_object_path
 from common.request_encapsulation import ApiRequest, ApiResponse
-from common.yaml_utils import YamlUtils
-from common.csv_utils import DataReplaceUtils
+from utils.yaml_utils import YamlUtils
+from utils.csv_utils import DataReplaceUtils
 from common.allure_utils import AllureReport
 
 # 外部库

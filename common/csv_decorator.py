@@ -85,7 +85,6 @@ def _read_csv_file(file_path: str):
 
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"CSV 文件不存在: {file_path}")
-
     cases = []
     first_column_name = None
 

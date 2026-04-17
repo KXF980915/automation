@@ -21,23 +21,27 @@ class YamlUtils:
         :param default_file: yaml文件默认存放路径
         :return:
         """
+
+        if os.path.isabs(file_path):
+            path = file_path
+        else:
+            path = os.path.join(get_object_path(), default_file, file_path)
+        if not os.path.isabs(path):
+            raise FileNotFoundError(f"YAML文件不存在: {path}")
+
         try:
-            if os.path.isabs(file_path):
-                path = file_path
-            else:
-                path = os.path.join(get_object_path(), default_file, file_path)
-            if not os.path.isabs(path):
-                raise FileNotFoundError(f"YAML文件不存在: {path}")
             with open(path, 'r', encoding='utf-8') as f:
                 data = yaml.safe_load(f)
-                print(data)
-            return data if data is not None else {}
+                self.logger.debug(f"成功读取 YAML 文件: {path}")
+                return data if data is not None else {}
         except FileNotFoundError:
             raise
         except yaml.YAMLError as e:
-            raise ValueError(f"YAML文件解析错误: {e}")
-        except Exception as e:
-            raise RuntimeError(f"读取YAML文件失败: {e}")
+            self.logger.error(f"YAML 解析错误: {e}")
+            raise
+        except OSError as e:
+            self.logger.error(f"读取YAML文件失败: {e}")
+            raise
 
     def replace_yaml(self, data, replacements: Dict):
         """
@@ -83,32 +87,27 @@ class YamlUtils:
         :param case_name: 用例名
         :return: 没找到返回None
         """
-        try:
-            yml_data = self.read_yaml(file_path)
-
-            # yaml文件中必须有test_cases
-            if 'test_cases' not in yml_data:
-                self.logger.error(f"YAML文件中必须存在'test_cases'键 - {file_path}")
-                return None
-            cases = yml_data['test_cases']
-
-            # 一个yaml文件中禁止有重复的用例名
-            name = [case['case_name'] for case in cases]
-            repeat_name = [repeat_name for repeat_name in name if name.count(repeat_name) > 1]
-            if repeat_name:
-                self.logger.error(f'case_name用例名称禁止重复，重复case_name:{set(repeat_name)}')
-                return None
-
-            # 提取用例
-            for case in cases:
-                if case['case_name'] == case_name:
-                    self.logger.debug(f'提取用例成功:{case_name}')
-                    return case
-            self.logger.warning(f"未找到对应用例：{case_name} - 在文件 {file_path} 中")
+        yml_data = self.read_yaml(file_path)
+        test_cases = yml_data.get('test_cases')
+        if not isinstance(test_cases, list):
+            self.logger.warning(f"YAML 文件缺少 'test_cases' 列表: {file_path}")
             return None
-        except Exception as e:
-            self.logger.error(f"获取用例失败：{str(e)} - 文件：{file_path}, 用例：{case_name}")
+        cases = yml_data.get('test_cases')
+
+        # 一个yaml文件中禁止有重复的用例名
+        case_names = [case.get('case_name') for case in cases]
+        duplicates = [name for name in case_names if case_names.count(name) > 1]
+        if duplicates:
+            self.logger.error(f"用例名重复: {duplicates}, 文件: {file_path}")
             return None
+
+        # 提取用例
+        for case in cases:
+            if case.get('case_name') == case_name:
+                self.logger.debug(f'提取用例成功:{case_name}')
+                return case
+        self.logger.warning(f"未找到对应用例：{case_name} - 在文件 {file_path} 中")
+        return None
 
     def read_extract(self, node_name=None):
         """
@@ -116,8 +115,9 @@ class YamlUtils:
         :param node_name: 节点名
         :return:
         """
+        file_path = os.path.join(get_object_path(), 'extract.yml')
         try:
-            with open(get_object_path() + 'extract.yml', 'r', encoding='utf-8') as f:
+            with open(file_path, 'r', encoding='utf-8') as f:
                 var = yaml.load(stream=f, Loader=yaml.FullLoader) or {}
             if node_name is None:
                 return var
@@ -131,11 +131,16 @@ class YamlUtils:
         :param data:
         :return:
         """
+        file_path = os.path.join(get_object_path(), 'extract.yml')
         existing_data = self.read_extract() or {}
         existing_data.update(data)
         # 写入完整数据
-        with open(get_object_path() + 'extract.yml', mode='w', encoding='utf-8') as f:
-            yaml.dump(existing_data, stream=f, allow_unicode=True, default_flow_style=False)
+        try:
+            with open(file_path, mode='w', encoding='utf-8') as f:
+                yaml.dump(existing_data, stream=f, allow_unicode=True, default_flow_style=False)
+        except Exception as e:
+            self.logger.error(f"写入 extract.yml 失败: {e}")
+        raise
 
     def read_config(self, one_node, two_node=None):
         """
@@ -144,7 +149,8 @@ class YamlUtils:
         :param two_node: 第二节点名
         :return:
         """
-        with open(get_object_path() + 'config.yml', encoding='utf-8') as f:
+        file_path = os.path.join(get_object_path(), 'config.yml')
+        with open(file_path, encoding='utf-8') as f:
             value = yaml.load(stream=f, Loader=yaml.FullLoader)
             if two_node == None:
                 return value[one_node]
@@ -156,8 +162,13 @@ class YamlUtils:
         清空extract.yml文件
         :return:
         """
-        with open(get_object_path() + 'extract.yml', encoding='utf-8', mode='w') as f:
-            f.truncate()
+        file_path = os.path.join(get_object_path(), 'extract.yml')
+        try:
+            with open(file_path, encoding='utf-8', mode='w') as f:
+                f.truncate()
+        except Exception as e:
+            self.logger.error(f"清空 extract.yml 失败: {e}")
+            raise
 
 
 if __name__ == '__main__':

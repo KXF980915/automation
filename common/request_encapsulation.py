@@ -10,7 +10,7 @@ from urllib.parse import urljoin
 # 内部库
 
 from common.log import test_logger
-from common.yaml_utils import YamlUtils
+from utils.yaml_utils import YamlUtils
 
 
 class ApiRequest:
@@ -40,10 +40,8 @@ class ApiRequest:
             if isinstance(url_source, str) and (url_source.startswith(('http://', 'https://'))):
                 base_url = url_source
             else:
-                try:
-                    base_url = YamlUtils().read_config('base', url_source)
-                except (KeyError, TypeError):
-                    raise ValueError(f"无效的URL配置: '{url_source}'，既不是URL也不是config.yml中定义的变量")
+                base_url = YamlUtils().read_config('base', url_source)
+
             url = base_url + request_config.get('path')
             # 准备请求参数
             method = request_config.get('method', 'GET').upper()

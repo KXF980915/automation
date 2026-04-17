@@ -19,6 +19,7 @@ class TestUser:
     @allure_testcase("维护债券接口", feature="新发页面", story="债券维护")
     @csv(r'D:\automation\csv\login.csv')
     def test_xiao_e(self,data):
+
         te().case('e_push.yml','维护债券',data)
 
     def test_cs(self,ebd_token):

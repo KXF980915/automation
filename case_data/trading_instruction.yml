@@ -12,48 +12,130 @@ test_cases:
       data:
         { "keyword": "${keyword}","type": "ib" }
     extract:
+      code: "$[0].code"
       bondAbbr: "$[0].bondAbbr"
       bondCode: "$[0].bondCode"
       trademarket: "$[0].trademarket"
-      code: "$[0].code"
       name: "$[0].name"
       bondTypeNum: "$[0].bondTypeNum"
       id: "$[0].id"
     validate:
       - [ '$.status_code',==,'200' ]
 
+  - case_name: "获取中债估值净价-中债估值收益率"
+    description: "获取中债估值净价-中债估值收益率"
+    request:
+      url: ed_url
+      method: "POST"
+      path: "/api/trade/order/queryOrderBondInfo"
+      headers:
+        Content-Type: "application/json;charset=UTF-8"
+        Authorization: ${token_type} ${access_token}
+      data: { "bondId": "${id}","bondCode": "${bondCode}","dealDate": "2026-03-18","dealOrg": "" }
+    extract:
+      chinabondValuation: "$.data.chinabondValuation"
+      chinabondNetprice: "$.data.chinabondNetprice"
+    validate:
+      - [ '$.status_code',==,'200' ]
+
+
   - case_name: "获取到期行权收益率"
     description: "获取到期行权收益率"
     request:
       url: ed_url
       method: "GET"
-      path: "/api/trade/calc/calculateYield?bondId=${id}&calcMethod=1&netPrice=${netPrice}&settleDate=2026-03-17"
+      path: "/api/trade/calc/calculateYield?bondId=${id}&calcMethod=1&netPrice=${netPrice}&settleDate=2026-03-18"
       headers:
         Content-Type: "application/json;charset=UTF-8"
         Authorization: ${token_type} ${access_token}
     extract:
-      accruedInterest: "$.data.data.accruedInterest"
       netPrice: "$.data.data.netPrice"
       yte: "$.data.data.yte"
       ytm: "$.data.data.ytm"
       fullPrice: "$.data.data.fullPrice"
+      accruedInterest: "$.data.data.accruedInterest"
     validate:
       - [ '$.status_code',==,'200' ]
 
-  - case_name: "获取应计利息总额和结算金额"
-    description: "获取应计利息总额和结算金额"
+  - case_name: "获取交易机构"
+    description: "获取交易机构"
     request:
       url: ed_url
-      method: "GET"
-      path: "/api/trade/calc/calculateYield?bondId=${id}&calcMethod=1&netPrice=${netPrice}&settleDate=2026-03-17"
+      method: "POST"
+      path: "/api/trade/order/queryOrderBondInfo"
       headers:
         Content-Type: "application/json;charset=UTF-8"
         Authorization: ${token_type} ${access_token}
+      data: { "bondCode": "","dealDate": "","dealOrg": "保定银行" }
     extract:
-      accruedInterest: "$.data.data.accruedInterest"
-      netPrice: "$.data.data.netPrice"
-      yte: "$.data.data.yte"
-      ytm: "$.data.data.ytm"
-      fullPrice: "$.data.data.fullPrice"
+      dealName: "$.data.dealName"
+      dealOrg: "$.data.dealOrg"
+      orgId: "$.data.orgId"
+      specType: "$.data.specType"
+      dealOa: "$.data.dealOa"
     validate:
       - [ '$.status_code',==,'200' ]
+
+  - case_name: "提交上市交易指令"
+    description: "提交上市交易指令"
+    request:
+      url: ed_url
+      method: "POST"
+      path: "/api/ekp/tradeInstructions/interbankTrade"
+      headers:
+        Content-Type: "application/json;charset=UTF-8"
+        Authorization: ${token_type} ${access_token}
+      data:
+        [
+          {
+            "approveGroup": null,
+            "uuid": "0aaac0ca888cb84f76883f68379a5de4",
+            "biddingId": "",
+            "chinaBondNetPrice": "${chinabondNetprice}",
+            "chinaBondValuation": "${chinabondValuation}",
+            "dealCategory": "10",
+            "dealTn": "${dealTn}",
+            "interest": "${accruedInterest}",
+            "netPrice": "${netPrice}",
+            "quoteSide": "1",
+            "quoteStandard": "0",
+            "quoteType": "2",
+            "setAmount": "100008.33",
+            "trdDate": "2026-03-18",
+            "trdNum": "10",
+            "trdType": "SP",
+            "bondName": "${bondAbbr}",
+            "bondCode": "${bondCode}",
+            "bondId": "${id}",
+            "realOrg": "00001603",
+            "saleOa": "${dealOa}",
+            "saleOrgId": "${orgId}",
+            "traderId": "",
+            "yte": "${yte}",
+            "ytm": "${ytm}",
+            "agencyName": null,
+            "agency": null,
+            "account": "28",
+            "specType": "0",
+            "block": "0",
+            "selfTraderId": "",
+            "innerPartyTraderId": "",
+            "agencySettleDate": "",
+            "specialTrade": "00000000",
+            "transactionFee": 150.25,
+            "singleAccruedInterest": "0.00833333",
+            "quoteSource": 0,
+            "inflowAndOutflow": null,
+            "rowIndex": 1,
+            "fullPrice": "${fullPrice}"
+          }
+        ]
+#    extract:
+#      dealName: "$.data.dealName"
+#      dealOrg: "$.data.dealOrg"
+#      orgId: "$.data.orgId"
+#      specType: "$.data.specType"
+#      dealOa: "$.data.dealOa"
+    validate:
+      - [ '$.status_code',==,'200' ]
+      - [ '$.message','in','接收交易成功。限额信息' ]
